@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const auth = (state = { }, action)=> {
   if(action.type === 'SET_AUTH'){
     return action.auth;

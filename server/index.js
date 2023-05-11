@@ -1,5 +1,15 @@
 const app = require('./app');
+app.engine('html', require('ejs').renderFile);//
 const { syncAndSeed } = require('./db');
+
+try{
+  require('../env.js');
+}
+catch(ex){
+  console.log(ex);
+}
+
+console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
 const init = async()=> {
   try {
