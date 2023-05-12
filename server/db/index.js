@@ -28,6 +28,7 @@ const syncAndSeed = async()=> {
     UserPlace.create({ userId: moe.id, placeId: london.id, isVisited: false }),
     UserPlace.create({ userId: moe.id, placeId: nyc.id, isVisited: true }),
     UserPlace.create({ userId: moe.id, placeId: seoul.id, isVisited: false }),
+    UserPlace.create({ userId: lucy.id, placeId: LA.id, isVisited: false}),
     ]);  
   return {
     users: {

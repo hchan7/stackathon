@@ -2,11 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import auth from './auth';
-import places from './places';
+import userplaces from './userplaces';
 
 const reducer = combineReducers({
   auth,
-  places,
+  userplaces,
 });
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
@@ -14,4 +14,4 @@ const store = createStore(reducer, applyMiddleware(thunk, logger));
 export default store;
 
 export * from './auth';
-export * from './places';
+export * from './userplaces';

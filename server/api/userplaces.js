@@ -6,6 +6,20 @@ const { isLoggedIn } = require('./middleware');
 module.exports = app;
 
 //mounted on /api/userplaces
+app.get('/', isLoggedIn, async(req, res, next) => {
+  try{
+    const userplaces = await UserPlace.findAll({
+      where: {
+        userId: req.user.id,
+      },
+    });
+    res.send(userplaces);
+  }
+  catch(ex){
+    next(ex)
+  }
+});
+
 app.post('/', isLoggedIn, async(req, res, next) => {
   try{
     //const { userId, place } = req.body;

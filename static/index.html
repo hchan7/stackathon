@@ -4,13 +4,9 @@
     <title>Acme Shopping</title>
     <script src='/dist/main.js' defer></script>
     <link rel='stylesheet' href='/static/styles.css' />
-    <script>
-      window.REACT_APP_GOOGLE_MAPS_API_KEY = '<%= REACT_APP_GOOGLE_MAPS_API_KEY %>';
-    </script>
-    <script async src={`https://maps.googleapis.com/maps/api/js?key=${window.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=places&callback=initMap`}></script>
-    <!--</script>-->
-    <!--<link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css" />
-    <script src="https://js.arcgis.com/4.24/"></script>-->
+    
+    <script async src='https://maps.googleapis.com/maps/api/js?key=<%= REACT_APP_GOOGLE_MAPS_API_KEY %>&libraries=places' defer></script>
+
   </head>
   <body>
     <div id='root'></div>
