@@ -17,12 +17,20 @@ export const loginWithToken = ()=> {
   return async(dispatch)=> {
     const token = window.localStorage.getItem('token');
     if(token){
-      const response = await axios.get('/api/auth', {
-        headers: {
-          authorization: token
+      try{
+        const response = await axios.get('/api/auth', {
+          headers: {
+            authorization: token
+          }
+        });
+        dispatch({ type: 'SET_AUTH', auth: response.data });
+      }
+      catch(ex){
+        if(ex.response && ex.response.status === 401) {
+          console.log('delete the token')
+          window.localStorage.removeItem('token');
         }
-      });
-      dispatch({ type: 'SET_AUTH', auth: response.data });
+      }
     }
   };
 };

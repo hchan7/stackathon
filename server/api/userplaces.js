@@ -13,6 +13,7 @@ app.get('/', isLoggedIn, async(req, res, next) => {
         userId: req.user.id,
       },
     });
+    //console.log('USERPLACES:', userplaces)
     res.send(userplaces);
   }
   catch(ex){
@@ -57,6 +58,27 @@ app.post('/', isLoggedIn, async(req, res, next) => {
     res.status(201).send(newUserPlace);
   }
   catch(ex){
+    next(ex);
+  }
+});
+
+app.put('/:id', isLoggedIn, async(req, res, next) => {
+  try{
+    console.log('req.params.id:', req.params.id)
+    const userplace = await UserPlace.findByPk(req.params.id);
+    console.log('put req.body:', req.body)
+    res.send(await userplace.update(req.body));
+  }catch(ex){
+    next(ex);
+  }
+});
+
+app.delete('/:id', async(req, res, next) => {
+  try{
+    const userplace = await UserPlace.findByPk(req.params.id);
+    await userplace.destroy();
+    res.sendStatus(204);
+  }catch(ex){
     next(ex);
   }
 });

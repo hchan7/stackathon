@@ -28,4 +28,8 @@ app.use('/api/userplaces', require('./api/userplaces'));
 // app.get('/api/weather', async(req, res, next)=> {
   
 // });
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).send({ error: err.message });
+});
 module.exports = app;

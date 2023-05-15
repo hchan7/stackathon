@@ -15,16 +15,19 @@ const App = ()=> {
   
   useEffect(()=> {
     dispatch(loginWithToken());
-    console.log('fetching user places');
-    dispatch(fetchUserPlaces());
   }, []);
   
+  useEffect(()=>{
+    if(auth.id){
+      dispatch(fetchUserPlaces());
+    }
+  }, [auth]);
   // useEffect(()=>{
   //   fetchData()
   // },[]);
   return (
     <div>
-      <h1>FS App Template</h1>
+      <h1>My Vacation Bucket List</h1>
       {
         auth.id ? <Home /> : <Login />
       }
