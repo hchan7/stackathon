@@ -8,11 +8,13 @@ module.exports = app;
 //mounted on /api/userplaces
 app.get('/', isLoggedIn, async(req, res, next) => {
   try{
-    const userplaces = await UserPlace.findAll({
-      where: {
-        userId: req.user.id,
-      },
-    });
+    //find all userplaces regardless of userid
+    const userplaces = await UserPlace.findAll();
+    // const userplaces = await UserPlace.findAll({
+    //   where: {
+    //     userId: req.user.id,
+    //   },
+    // });
     //console.log('USERPLACES:', userplaces)
     res.send(userplaces);
   }
@@ -21,6 +23,16 @@ app.get('/', isLoggedIn, async(req, res, next) => {
   }
 });
 
+app.get('/places',  async(req, res, next) => {
+  try{
+    const places = await Place.findAll();
+    //console.log('USERPLACES:', userplaces)
+    res.send(places);
+  }
+  catch(ex){
+    next(ex)
+  }
+});
 app.post('/', isLoggedIn, async(req, res, next) => {
   try{
     //const { userId, place } = req.body;
@@ -77,6 +89,8 @@ app.delete('/:id', async(req, res, next) => {
   try{
     const userplace = await UserPlace.findByPk(req.params.id);
     await userplace.destroy();
+    //if this place is not associated with other users, then delete the place too
+    //find the places associated with userplace based on lat lon
     res.sendStatus(204);
   }catch(ex){
     next(ex);

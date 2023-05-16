@@ -1,5 +1,8 @@
 body {
   font-family: verdana;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 form {
@@ -23,3 +26,4 @@ nav {
 .placeInput {
   width: 100%;
 }
+

@@ -19,7 +19,9 @@ const UserPlace = conn.define('userplace',{
     type:BOOLEAN,
     defaultValue: false
   },
-  
+  note: {
+    type: TEXT
+  }
 });
 
 module.exports = UserPlace;
