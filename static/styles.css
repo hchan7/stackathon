@@ -22,6 +22,11 @@ form > * {
 nav {
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
+ 
+}
+nav a{
+   text-decoration: none; text-decoration: none;
 }
 .map-container {
   width: 100%;
@@ -53,20 +58,5 @@ nav {
 }
 .bucketlist-heading{
   text-shadow: 2px 2px white;
-}
-/*
-.bucketlist-item {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-  align-items: center;
-}*/
-/*.list-group {
-  display: flex;
-}*/
-/*
-li {
-  display: flex;
-  flex-direction: row;
   font-weight: bold;
-}*/
+}
