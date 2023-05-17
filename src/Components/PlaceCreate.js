@@ -6,8 +6,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-const PlaceCreate = ({createUserPlace, map, createMarker}) => {
-  const dispatch = useDispatch();
+const PlaceCreate = ({createUserPlace}) => {
+  //const dispatch = useDispatch();
   
   const input = useRef();
   

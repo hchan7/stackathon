@@ -18,20 +18,12 @@ const Places = () => {
   return (
     <div>
       <h2>Top Destinations Based on Community's Bucket Lists</h2>
-      <ol>
-        {/*{
-          places.map(place => {
-            return (
-              <li>
-                {place.name}
-              </li>
-            )
-          })
-        }*/}
+      <ol className='list-group list-group-numbered'>
+        
         {sortedPlaces.map(place => {
           const count = userplaces.filter(up => up.placeId === place.id).length;
           return (
-            <li key={place.id}>
+            <li key={place.id} className='list-group-item'>
               {place.name} - Count: {count}
             </li>
           );
